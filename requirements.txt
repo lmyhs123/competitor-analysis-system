@@ -1,0 +1,38 @@
+# ============================================================
+# 竞品动态追踪与智能对标分析系统 — 依赖清单
+# ------------------------------------------------------------
+# 安装：venv\Scripts\pip install -r requirements.txt
+# 分类对应课件工程规范，按业务模块组织
+# ============================================================
+
+# ---- 基础基础包（步骤三.1）----
+python-dotenv>=1.0.0          # 读取 .env 存放 API 密钥
+pydantic>=2.7.0               # 结构化 Schema 定义
+jsonschema>=4.20.0            # 工具输出格式校验
+pandas>=2.0.0                 # CSV 报表读写
+
+# ---- Anthropic 官方 SDK（步骤三.2）----
+anthropic>=0.96.0
+
+# ---- LangChain 全套组件（步骤三.3）----
+langchain>=1.0.0
+langchain-anthropic>=1.0.0
+langchain-core>=1.0.0
+langchain-chroma>=0.2.0       # RAG 向量库集成
+langchain-text-splitters       # 语义分块
+
+# ---- RAG 向量库（向量数据持久层）----
+chromadb>=0.5.0
+
+# ---- 多源舆情采集（data_loader.py）----
+requests>=2.31.0              # 网页抓取
+beautifulsoup4>=4.12.0        # HTML 解析
+feedparser>=6.0.10            # RSS 抓取
+
+# ---- FastAPI 服务化（api_server.py）----
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+
+# ---- 拓展开发配套（步骤七）----
+aiohttp>=3.9.0               # 流式输出 / 异步
+numpy>=1.26.0                # 数据处理增强

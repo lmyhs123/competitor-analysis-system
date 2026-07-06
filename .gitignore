@@ -1,0 +1,71 @@
+# ============================================================
+# 安全与卫生配置
+# ============================================================
+
+# --- 密钥与敏感信息（绝不入库）---
+.env
+.env.*
+!.env.example
+
+# --- Python 虚拟环境 ---
+venv/
+.venv/
+env/
+ENV/
+
+# --- 向量库 / 记忆持久化数据（保留 README，忽略运行时数据）---
+chroma_db/*
+!chroma_db/README.md
+memory/*
+!memory/README.md
+
+# --- Python 缓存与字节码 ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.installed.cfg
+MANIFEST
+
+# --- 测试与覆盖率 ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# --- 类型检查 ---
+.mypy_cache/
+.pyre/
+.pytype/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# --- IDE / 编辑器 ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# --- 日志与本地数据 ---
+*.log
+logs/
+*.csv
+!data/sample/*.csv
+
+# --- 操作系统 ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+.workbuddy
