@@ -23,6 +23,8 @@ langchain-text-splitters       # 语义分块
 
 # ---- RAG 向量库（向量数据持久层）----
 chromadb>=0.5.0
+langchain-huggingface>=0.1.0
+sentence-transformers>=3.0.0
 
 # ---- 多源舆情采集（data_loader.py）----
 requests>=2.31.0              # 网页抓取
