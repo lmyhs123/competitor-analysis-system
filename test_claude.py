@@ -23,11 +23,11 @@ def load_config():
 
     # 1) 密钥必须配置且不能是占位符
     if not api_key:
-        print("❌ 未检测到 ANTHROPIC_API_KEY")
+        print("[ERROR] 未检测到 ANTHROPIC_API_KEY")
         print("   请在项目根目录 .env 文件中填写：ANTHROPIC_API_KEY=sk-你的DeepSeek密钥")
         sys.exit(1)
     if "你的" in api_key or "your_key" in api_key.lower():
-        print("❌ ANTHROPIC_API_KEY 仍是占位符，请在 .env 中替换为真实密钥")
+        print("[ERROR] ANTHROPIC_API_KEY 仍是占位符，请在 .env 中替换为真实密钥")
         sys.exit(1)
 
     # 2) 模型名（DeepSeek 统一用 deepseek-v4-flash，可通过 ANTHROPIC_MODEL 覆盖）
@@ -72,7 +72,7 @@ def main():
     try:
         res = llm.invoke("简单介绍竞品情报分析的作用（150字以内）")
     except Exception as e:
-        print("❌ 请求失败")
+        print("[ERROR] 请求失败")
         print("-" * 60)
         print(f"错误类型: {type(e).__name__}")
         print(f"错误信息: {e}")
@@ -84,13 +84,13 @@ def main():
         print("  4) 检查网络代理 / 防火墙是否放行")
         sys.exit(2)
 
-    print("✅ Claude 响应成功！")
+    print("[OK] Claude 响应成功！")
     print("-" * 60)
     print(res.content)
     print("-" * 60)
     print(f"Token 用量: {res.response_metadata.get('usage', 'N/A')}")
     print()
-    print("环境 / 密钥 / 网络 / LangChain 集成 全部正常 ✅")
+    print("环境 / 密钥 / 网络 / LangChain 集成 全部正常 [OK]")
 
 
 if __name__ == "__main__":
